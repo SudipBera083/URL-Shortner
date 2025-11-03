@@ -81,6 +81,28 @@
       box-shadow: 0 4px 15px rgba(110,142,251,0.5);
     }
 
+    .progress-bar {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 12px;
+      margin-top: 20px;
+      height: 12px;
+      overflow: hidden;
+      display: none;
+    }
+
+    .progress {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #6e8efb, #a777e3);
+      animation: progressAnim 2.5s ease-in-out forwards;
+    }
+
+    @keyframes progressAnim {
+      from {width: 0%;}
+      to {width: 100%;}
+    }
+
     .result {
       margin-top: 25px;
       background: rgba(255, 255, 255, 0.2);
@@ -149,10 +171,15 @@
   <div class="glass-container">
     <h1>✨ URL Shortener</h1>
 
-    <form method="POST" action="">
+    <form method="POST" action="" id="shortenForm">
       {% csrf_token %}
-      <input type="text" name="original_url" placeholder="Paste your long URL here..." value="{{ original_url|default:'' }}" required>
-      <button type="submit">Shorten URL</button>
+      <input type="text" name="original_url" id="urlInput" placeholder="Paste your long URL here..." value="{{ original_url|default:'' }}" required>
+      <button type="submit" id="shortenBtn">Shorten URL</button>
+
+      <!-- Progress Bar -->
+      <div class="progress-bar" id="progressBar">
+        <div class="progress" id="progress"></div>
+      </div>
     </form>
 
     {% if short_url %}
@@ -175,6 +202,19 @@
   </footer>
 
   <script>
+    const form = document.getElementById('shortenForm');
+    const progressBar = document.getElementById('progressBar');
+    const progress = document.getElementById('progress');
+
+    form.addEventListener('submit', () => {
+      progressBar.style.display = 'block';
+      progress.style.width = '0%';
+      setTimeout(() => { progress.style.width = '100%'; }, 100);
+
+      // Auto-hide progress bar after 3s (simulate genuine loading)
+      setTimeout(() => { progressBar.style.display = 'none'; }, 3000);
+    });
+
     function copyUrl(url) {
       navigator.clipboard.writeText(url);
       alert("📋 Short URL copied to clipboard!");
