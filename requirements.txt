@@ -1,0 +1,14 @@
+# Core dependencies
+Django==5.0.4
+djangorestframework==3.15.1
+
+# URL Shortening
+pyshorteners==1.0.1
+
+# QR Code Generation
+qrcode==7.4.2
+pillow==10.4.0   # Required by qrcode for image generation
+
+# Optional but recommended for better dev experience
+django-cors-headers==4.3.1
+requests==2.32.3
