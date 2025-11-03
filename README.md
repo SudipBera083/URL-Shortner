@@ -19,7 +19,7 @@ It shortens long URLs into compact links, features a **genuine progress bar**, a
 
 ## 🖼️ Preview
 
-![URL Shortener Preview](https://github.com/SudipBera083//assets/preview-url-shortener.png)
+![URL Shortener Preview](https://github.com/SudipBera083/URL-Shortner/blob/main/assets/preview.png)
 
 ---
 
@@ -38,8 +38,8 @@ It shortens long URLs into compact links, features a **genuine progress bar**, a
 
 ### 1️⃣ Clone the Repository
 ```bash
-git https://github.com/SudipBera083/URL-Shortner.git
-cd url-shortener
+git clone https://github.com/SudipBera083/URL-Shortner.git
+cd URL-Shortner
 ```
 
 ### 2️⃣ Create a Virtual Environment
@@ -51,7 +51,7 @@ venv\Scripts\activate        # (Windows)
 
 ### 3️⃣ Install Dependencies
 ```bash
-pip install django
+pip install -r requirements.txt
 ```
 
 ### 4️⃣ Run the Server
@@ -141,7 +141,7 @@ form.addEventListener('submit', () => {
 ## 🧑‍💻 Author
 
 **👤 [Sudip Bera](https://github.com/SudipBera083)**  
-💼 Programmer Analyst Trainee @ Cognizant  
+💼 Programmer Analyst @ Cognizant  
 💬 Specialist in Oracle Cloud HCM, Django, and Python  
 📫 Reach me: [LinkedIn](https://linkedin.com/in/sudipbera083)
 
